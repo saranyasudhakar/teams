@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To run this project we need `node`, `npm` installed in your local machine.
 And install angular-cli through giving command  `npm install -g @angular/cli` and create new app with giving `ng new-myapp`.
-And then move to the  angular folder cretaed in your local machine.
+And then move to the  angular folder created in your local machine.
 
 ## Development server
 
