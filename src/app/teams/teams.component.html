@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-12 title">
+      <h1>Teams</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4" *ngFor="let team of teams">
+    <div class="teamDetails" (click)="navigateTeam(team)">
+        <div>
+            <label>Team Name</label>
+            <h3>{{team.name}}</h3>
+        </div>
+        <div>
+            <label>Team Full Name</label>
+            <h3>{{team.fullName}}</h3>
+        </div>
+        <div>
+            <label>Team Nick Name</label>
+            <h3>{{team.nickName}}</h3>
+        </div>
+        <div>
+            <label>Abbr</label>
+            <h3>{{team.abbr}}</h3>
+        </div>
+        <div>
+            <label>No.of Players</label>
+            <h3>{{team.roster.length}}</h3>
+        </div>
+        <div>
+            <!-- Navigating to team-details view -->
+          <a routerLink="/teamDetails/{{team.id}}" class="btn btn-primary" href="#">View</a>
+        </div>
+    </div>
+  </div>
+</div>

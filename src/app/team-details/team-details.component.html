@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12 title">
+    <h1>Team Details</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Display Name</th>
+          <th>Unit</th>
+          <th>Position Abbr</th>
+          <th [class.active]="order === 'position'" (click)="setOrder('position')">Position
+            <span [hidden]="reverse" style="color:red">^</span>
+            <span [hidden]="!reverse" style="color:red">^</span>
+          </th>
+          <th [class.active]="order === 'depthOrder'" (click)="setOrder('depthOrder')">Depth Order
+            <span [hidden]="reverse" style="color:red">^</span>
+            <span [hidden]="!reverse" style="color:red">^</span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngIf="teamDetails">
+        <!--Iterating the tea details using OrderPipe sort-->
+        <tr *ngFor="let item of teamDetails | orderBy: order:reverse:'case-insensitive'; let i = index">
+          <td>{{item.person.displayName}}</td>
+          <td>{{item.unit}}</td>
+          <td>{{item.positionAbbr}}</td>
+          <td>{{item.position}}</td>
+          <td>{{item.depthOrder}}</td>
+          <td>
+            <!-- Navigating to edit-team view -->
+            <a routerLink="/editTeam/{{teamId}}/{{i}}" href="javascript:void(0)" class="btn btn-primary">Edit Member</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

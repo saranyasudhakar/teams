@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6 title">
+      <h1>Edit Team Member</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6" *ngIf="memberDetails">
+      <form #heroForm="ngForm">
+        <div class="form-group">
+          <label for="name" >Name</label>
+          <input type="text" class="form-control" id="name" required 
+                [(ngModel)]="memberDetails.person.displayName" name="name">
+        </div>  
+        <div class="form-group">
+          <label for="position">Position</label>
+          <input type="text" class="form-control" id="position" required
+                 [(ngModel)]="memberDetails.position" name="position">
+        </div>
+        
+        <div class="form-group">
+          <label for="positionAbbr">Position Abbr</label>
+          <input type="text" class="form-control" id="positionAbbr" required
+                 [(ngModel)]="memberDetails.positionAbbr" name="positionAbbr">
+        </div>
+        <div class="form-group">
+          <label for="unit">Unit</label>
+          <input type="text" class="form-control" id="unit" required
+                 [(ngModel)]="memberDetails.unit" name="unit">
+        </div>
+        <div class="text-right">
+           <!--Disabiling submit button if any field is empty-->
+            <button type="submit" class="btn btn-success submit" 
+                    (click)="onSubmit(heroForm)" [disabled]="heroForm.invalid">Submit</button>
+            <button type="cancel" class="btn btn-warning" 
+                    (click)="cancel(heroForm)">Cancel</button>
+        </div>
+      </form>
+  </div>
+</div>
